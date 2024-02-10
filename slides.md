@@ -34,8 +34,6 @@ mdc: true
 </div>
 
 ---
-transition: fade-out
----
 
 # 目標
 
@@ -86,11 +84,8 @@ h1 {
   ```
 
 ---
-transition: fade-out
----
 
-# 宣告型態
-## 變數
+# 宣告型態 - 變數
 
 <v-click>
 ```ts
@@ -113,4 +108,77 @@ const age:number = '28'
 Type 'string' is not assignable to type 'number'.
 ```
 </v-click>
+
 ---
+
+# 宣告型態 - Function
+
+```ts
+const playVideo = (name: string, speed: number): string => {
+  console.log(`以 ${speed} 倍速播放 ${name}`)
+}
+
+playVideo('幽游白書', 1)
+```
+
+---
+
+# 宣告型態 - 物件
+
+```ts
+const anneHathaway = {
+  age: 41,
+  movies: ['穿著Prada的惡魔', '高年級實習生', '星際效應'],
+  married: true
+}
+
+const emmaWatson = {
+  age: 33,
+  movies: ['哈利波特', '挪亞方舟', '美女與野獸'],
+  married: false
+}
+```
+
+---
+
+# 宣告型態 - 物件
+
+定義介面 (interface) 或 型態 (type)
+
+```ts
+interface Actress {
+  age: number
+  movies: string[]
+  married: boolean
+}
+
+type Actress = {
+  age: number,
+  movies: string[],
+  married: boolean
+}
+```
+
+---
+
+# 宣告型態 - 物件
+
+給予物件型態
+```ts
+const AnneHathaway: Actress = {
+  age: 41,
+  movies: ['穿著Prada的惡魔', '高年級實習生', '星際效應'],
+  married: false
+}
+
+const emmaWatson: Actress = {
+  age: 33,
+  movies: ['哈利波特', '挪亞方舟', '美女與野獸'],
+  married: false
+}
+```
+
+---
+
+# 斷言
+強行給予型別
