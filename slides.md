@@ -113,18 +113,47 @@ Type 'string' is not assignable to type 'number'.
 
 # 宣告型態 - Function
 
+<v-click>
+定義 Function
 ```ts
-const playVideo = (name: string, speed: number): string => {
+const playVideo = (name: string, speed: number) => {
   console.log(`以 ${speed} 倍速播放 ${name}`)
 }
+```
+</v-click>
 
+<v-click depth='2'>
+```ts
 playVideo('幽游白書', 1)
 ```
+</v-click>
+
+<v-click depth='3'>
+```ts
+const name: string = '幽游白書'
+const speed: number = 3
+
+playVideo(name, speed)
+```
+</v-click>
+
+<v-click depth='4'>
+<span class='text-red-500'>給錯型態時:</span>
+```ts
+playVideo(123, 3)
+
+類型 'number' 的引數不可指派給類型 'string' 的參數。
+```
+</v-click>
 
 ---
 
 # 宣告型態 - 物件
 
+<div class='flex gap-x-10'>
+  <v-click depth='1'>
+    <div>
+定義物件
 ```ts
 const anneHathaway = {
   age: 41,
@@ -132,53 +161,86 @@ const anneHathaway = {
   married: true
 }
 
-const emmaWatson = {
-  age: 33,
-  movies: ['哈利波特', '挪亞方舟', '美女與野獸'],
-  married: false
-}
 ```
+    </div>
+  </v-click>
 
----
-
-# 宣告型態 - 物件
-
+  <v-click depth='2'>
+    <div>
 定義介面 (interface) 或 型態 (type)
-
+      <div class='flex gap-x-4'>
+        <div>
 ```ts
 interface Actress {
   age: number
   movies: string[]
   married: boolean
 }
-
+```
+        </div>
+        <div>
+```ts
 type Actress = {
   age: number,
   movies: string[],
   married: boolean
 }
 ```
+        </div>
+      </div>
+    </div>
+  </v-click>
+</div>
+
+<v-click depth='4'>
+  <span>給予物件型態</span>
+  <div class='flex gap-x-10'>
+    <div>
+
+```ts
+const anneHathaway: Actress = {
+  age: 41,
+  movies: ['穿著Prada的惡魔', '高年級實習生', '星際效應'],
+  married: false
+}
+```
+    </div>
+  </div>
+</v-click>
 
 ---
 
 # 宣告型態 - 物件
 
-給予物件型態
+<span class='text-red-500'>給錯型態時:</span>
+
+<v-click>
+  <div>
+  <span>1. 少了 age 屬性:</span>
 ```ts
-const AnneHathaway: Actress = {
-  age: 41,
+const anneHathaway2: Actress = {
   movies: ['穿著Prada的惡魔', '高年級實習生', '星際效應'],
   married: false
 }
 
-const emmaWatson: Actress = {
-  age: 33,
-  movies: ['哈利波特', '挪亞方舟', '美女與野獸'],
+類型 '{ movies: string[]; married: false; }' 缺少屬性 'age'，但類型 'Actress' 必須有該屬性。
+```
+  </div>
+</v-click>
+
+<v-click depth='2'>
+  <div>
+  <span>2. movie 型態錯誤:</span>
+```ts
+const anneHathaway2: Actress = {
+  age: 41,
+  movies: [123, '高年級實習生', '星際效應'],
   married: false
 }
+
+類型 'number' 不可指派給類型 'string'。
 ```
+  </div>
+</v-click>
 
 ---
-
-# 斷言
-強行給予型別
