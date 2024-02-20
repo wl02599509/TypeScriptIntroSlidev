@@ -90,10 +90,10 @@ h1 {
 <v-click>
 ```ts
 const age: number = 28
-const name: string = 'Mike'
+const myName: string = 'Mike'
 const married: boolean = false
 const songList: string[] = ['披星戴月的想你', '你比從前快樂', '十年']
-const singers: Array<string>: ['JJ', '王力宏', '羅志祥']
+const singers: Array<string> = ['JJ', '王力宏', '羅志祥']
 const deposit: null = null
 const wallet: undefined = undefined
 const sport: any
