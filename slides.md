@@ -276,3 +276,9 @@ createArray = function<T>(length: number, value: T): Array<T> {
 createArray(3, 'x'); // ['x', 'x', 'x']
 ```
 </v-click>
+
+---
+
+<div class='flex justify-center items-center h-full w-full'>
+  <h1>End</h1>
+</div>
