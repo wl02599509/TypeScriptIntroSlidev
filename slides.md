@@ -248,32 +248,25 @@ const anneHathaway2: Actress = {
 # 泛型
 
 ```ts
-function createArray<T>(length: number, value: T): Array<T> {
-    let result: T[] = [];
-    for (let i = 0; i < length; i++) {
-        result[i] = value;
-    }
-    return result;
+const array = ['1', '3', '5', '7']
+const getFirstElement = (arr: string[]): string => {
+  return arr[0];
 }
 
-createArray<string>(3, 'x'); // ['x', 'x', 'x']
+getFirstElement(array)
 ```
+
 <v-click dept='2'>
+
 ```ts
-interface CreateArrayFunc<T> {
-    (length: number, value: T): Array<T>;
+const array1 = [1, 3, 5, 7]
+const array2 = ['1', '3', '5', '7']
+const getFirstElement = <T>(arr: T[]): T => {
+  return arr[0];
 }
 
-let createArray: CreateArrayFunc<any>;
-createArray = function<T>(length: number, value: T): Array<T> {
-    let result: T[] = [];
-    for (let i = 0; i < length; i++) {
-        result[i] = value;
-    }
-    return result;
-}
-
-createArray(3, 'x'); // ['x', 'x', 'x']
+getFirstElement<number>(array1)
+getFirstElement<string>(array2)
 ```
 </v-click>
 
